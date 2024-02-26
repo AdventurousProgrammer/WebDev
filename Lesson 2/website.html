@@ -1,0 +1,85 @@
+<style>
+.subscribe-button{
+    color: white;
+    background-color: rgb(204, 0, 0);
+    border: none;
+    height: 30px;
+    width: 100px;
+    border-radius: 3px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+.subscribe-button:hover{
+    opacity: 0.8
+}
+
+.subscribe-button:active{
+    opacity: 0.5;
+}
+
+
+.join-button{
+    color: rgb(41, 118, 211);
+    background-color: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(41, 118, 211);
+    height: 30px;
+    width: 60px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 1s, color 1s;
+}
+
+.join-button:hover{
+    background-color: rgb(41, 118, 211);
+    color: white;
+
+}
+
+.join-button:active{
+    opacity: 0.7;
+}
+
+.tweet-button {
+    background-color: rgb(2, 158, 255);
+    color: white;
+    border: none;
+    height: 36px;
+    width: 74px;
+    border-radius: 8px;
+    border-radius: 18px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: box-shadow 0.15s;
+  }
+
+.tweet-button:hover{
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+}
+</style>
+
+<button class="subscribe-button">
+    SUBSCRIBE
+</button>
+<button class="join-button">
+    JOIN
+</button>
+<button class="tweet-button">
+    Tweet
+</button>
+<!--: hover styles apply when hovering, in addition to static styles-->
+<!--:hover is pseudo class, additional styles that apply when certain conditions are met, 
+    hover applies when you are hovering for example
+
+    :active applies when you click on button
+-->
+
+<!--shadows aren't any kind of color, darker shade of whatever they are covering
+so need rgba where a is opacity
+
+box-shadow is horizontal position, vertical position, blur, opacity of color-->
