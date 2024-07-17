@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="js-button">Button</button>
+    <script>
+        /*
+        greeting();
+        function greeting()
+        {
+            console.log('hello');
+        }
+            hoisting method
+
+            can call function before it is defined,
+
+            doesnt work when function is saved in variable
+        
+            Functions are treated as values, so they can
+            be saved inside variables and objects
+            */
+
+        const num = 2;
+        /*
+        const function1 = function greeting(){
+            console.log('hello2');
+        };*/
+
+        /*
+        const function1 = function() {
+            console.log('hello anon function');
+        };*/
+
+         // functions are values like int, obj
+        // and other data types
+        /*
+        function1();
+        
+        const object1 = {
+            num: 2,
+            fun: function()
+            {
+                console.log('object function');
+            }
+        };
+
+        object1.fun();
+        */
+
+        // in JS as long as there is a way to run
+        // a function, function name is not needed
+        // can access greeting function through function1
+        // variable
+
+        /*
+        function run(param)
+        {
+            param();
+        }
+
+        run(function(){
+           console.log('function parameter');  
+        });
+        */
+
+        /*
+        functions can be used as parameters to other functions
+        this is called a call back shown above
+        */
+
+        /*
+        setTimeout lets you run function in the future
+        
+        setTimeout(func, delay) func = function to run in the future, 
+        delay is how far in the future to call func
+        delay is in milli seconds (ms)
+        */
+        /*
+        setTimeout(function(){
+            console.log('timeout', 3000)
+        }, 3000);
+
+        console.log('next line'); // will be executed before setTimeout function
+        */
+
+        /*
+        Asynchronous code doesnt wait for console.log
+        to finish running
+
+        prints next line immediately and timeout
+        function runs in the background
+
+        asynchronous code - won't wait for a line 
+        to finish before going to the next line
+        (doesn't block our code for 3 seconds)
+
+        setTimeOut is asynchronous, the code inside is still synchronous
+
+        synchronous code - will wait for one line to
+         finish before going to the next line
+        */
+        /*
+        setInterval(function() {
+            console.log('interval');
+            console.log('interval2');
+        }, 3000);
+        */
+        /*
+        This function is also asynchronous, but it
+        will run every t milliseconds in the future
+        */
+
+        // use .forEach loop to loop through array (preferred way to loop through array)
+        
+        ['make dinner',
+         'wash dishes',
+        'watch youtube'].forEach((value, index) => {
+            console.log(`Index: ${index} value: ${value}`);
+        });
+        
+
+        // the two function definitions below are logically equivalent
+
+        const regularFunction = function(param1, param2){
+            console.log('regular function');
+        }
+
+        const arrowFunction = (param1, param2) => {
+            console.log('arrow function');
+        }
+
+        arrowFunction();
+        regularFunction();
+
+        const oneParam = param => { // don't need parantheses when only 1 parameter
+            console.log(param + 1);
+        };
+        oneParam(2);
+
+        const oneLine = () => 2 + 3; // no return needed with only 1 line 
+        
+       /*  const object2 = {
+            method: () => {
+
+            },
+
+            method: (){
+
+            }
+        } */
+        // use arrowFunctions when passing a function into another function
+
+        // addEventListener runs code when we interact with an element, like onclick
+        // addEventListener adds multiple event listeners for an event
+        // removeEventListener ('event name', function) save function to variable first
+
+        const buttonElement = document.querySelector('.js-button');
+        const eventListener = () => {
+            console.log('click');
+        };
+
+        const eventListener2 = () => {
+            console.log('click2');
+        };
+
+        buttonElement.addEventListener('click', eventListener);
+        buttonElement.removeEventListener('click', eventListener);
+        buttonElement.addEventListener('click', () => { // click2 is not an event name
+            console.log('click2');
+        });
+    </script>
+</body>
+</html>

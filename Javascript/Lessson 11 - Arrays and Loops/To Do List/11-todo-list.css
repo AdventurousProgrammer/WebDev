@@ -1,0 +1,39 @@
+body{
+    font-family: Arial;
+}
+
+.to-do-name, .to-do-date{
+    padding: 8px;
+}
+
+.add-button{
+    background-color: green;
+}
+
+.add-button, .delete-button{
+    border: none;
+    padding: 10px 20px;
+    width: 100px;
+    cursor: pointer;
+    color: white;
+}
+
+.input-div{
+    margin-bottom: 15px;
+}
+
+.js-to-do-list{
+    display: grid;
+    grid-template-columns: 170px 110px 100px;
+    column-gap: 20px;
+    row-gap: 20px;
+    align-items: center;
+}
+
+.js-item-date, .js-item-name{
+    text-align: center;
+}
+
+.delete-button{
+    background-color: darkred;
+}
