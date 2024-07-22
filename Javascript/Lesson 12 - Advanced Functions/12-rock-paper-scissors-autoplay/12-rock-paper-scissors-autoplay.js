@@ -5,8 +5,45 @@ let score = JSON.parse(localStorage.getItem('score')) || {
   ties: 0
 };
 
+const rockButtonElement = document.querySelector('.js-rock-button');
+const paperButtonElement = document.querySelector('.js-paper-button');
+const scissorsButtonElement = document.querySelector('.js-scissors-button');
+
+const playRockEventListener = () => {
+  playGame('rock');
+};
+rockButtonElement.addEventListener('click', playRockEventListener);
+
+const playPaperEventListener = () => {
+  playGame('paper');
+};
+
+paperButtonElement.addEventListener('click', playPaperEventListener);
+
+const playScissorsEventListener = () => {
+  playGame('scissors');
+};
+scissorsButtonElement.addEventListener('click', playScissorsEventListener);
 updateScoreElement();
 
+/*
+Play Game with keyboard input
+*/
+
+document.body.addEventListener('keydown', (event) => {
+    if(event.key === 'r')
+    {
+      playGame('rock');
+    }
+    else if(event.key === 's')
+    {
+      playGame('scissors');
+    }
+    else if(event.key === 'p')
+    {
+      playGame('paper');
+    }
+});
 /*
 if (!score) {
   score = {
