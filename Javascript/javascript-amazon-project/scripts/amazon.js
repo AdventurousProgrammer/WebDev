@@ -120,6 +120,8 @@ addToCartButtons.forEach((button, buttonIndex) =>{
           cart.forEach((item) => {
             totalQuantity += item.quantity;
           });
+          document.querySelector('.cart-quantity').innerHTML = totalQuantity;
+
           console.log(cart);
           console.log(`Cart Quantity: ${totalQuantity}`);
           // use data attribute to get product information from button
@@ -127,6 +129,7 @@ addToCartButtons.forEach((button, buttonIndex) =>{
           //numItems++;
         });
 });
+
 
 /*
   // give each product a unique id, name doesnt cut it
