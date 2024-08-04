@@ -78,7 +78,8 @@ products.forEach((product) => {
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary">
+          <button class="add-to-cart-button button-primary 
+          js-add-to-cart" data-product-id="${product.id}">
             Add to Cart
           </button>
         </div>
@@ -87,5 +88,43 @@ products.forEach((product) => {
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
-console.log(productsHTML);
+const addToCartButtons = document.querySelectorAll('.js-add-to-cart')
 
+addToCartButtons.forEach((button, buttonIndex) =>{
+        button.addEventListener('click', () => {
+          console.log('Added Product');
+          console.log(button.dataset);
+          const productId = button.dataset.productId
+          
+          let matchingItem;
+          cart.forEach((item, index) => {
+            if(item.productId === productId)
+            {
+              matchingItem = item;
+            }
+          });
+
+          if(matchingItem)
+          {
+            matchingItem.quantity++;
+          }
+          else
+          {
+            cart.push({
+              productId: productId,
+              quantity: 1
+            });
+          }
+          console.log(cart);
+          // use data attribute to get product information from button
+          //cart.push()
+          //numItems++;
+        });
+});
+
+/*
+  // give each product a unique id, name doesnt cut it
+// because ecommerce websites can have
+ product with the same name, but different
+  brands
+*/
