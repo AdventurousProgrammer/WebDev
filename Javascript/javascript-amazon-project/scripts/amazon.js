@@ -115,7 +115,13 @@ addToCartButtons.forEach((button, buttonIndex) =>{
               quantity: 1
             });
           }
+
+          let totalQuantity = 0;
+          cart.forEach((item) => {
+            totalQuantity += item.quantity;
+          });
           console.log(cart);
+          console.log(`Cart Quantity: ${totalQuantity}`);
           // use data attribute to get product information from button
           //cart.push()
           //numItems++;
