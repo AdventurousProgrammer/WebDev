@@ -1,3 +1,5 @@
+import {cart} from '../data/cart.js'
+
 console.log('Enter Amazon JS');
 /*
 const products = [{
