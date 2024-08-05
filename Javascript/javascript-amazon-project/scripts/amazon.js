@@ -1,4 +1,5 @@
 import {cart} from '../data/cart.js'
+import {products} from '../data/products.js'
 
 console.log('Enter Amazon JS');
 /*
@@ -6,7 +7,7 @@ const products = [{
     name: 'Black and Gray Athletic Cotton Socks - 6 Pairs',
     image: 'images/products/athletic-cotton-socks-6-pairs.jpg',
     rating: {
-        stars: 4.5,
+        stars: 4.5,data/cart.js 
         count: 87,
     },
     priceCents: 1090
