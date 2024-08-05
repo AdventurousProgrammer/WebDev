@@ -54,9 +54,22 @@
     <div class="main">
       <div class="products-grid js-products-grid">
     
-    <script src="data/cart.js"></script>
+    <!-- having multiple script tags like 
+     this can create naming problems, may accidentally create
+     variables with the same name in different
+     files, which will cause program to stop working
+     -->    
+     <!-- when loading a script, it runs all the code in that script -->
+    <!--<script src="data/cart.js"></script>-->
     <script src="data/products.js"></script>
-    <script src="scripts/amazon.js"></script>
+    <script src="scripts/amazon.js" type="module"></script>
+  <!-- Having all JS files like this, is like 
+   having 1 huge JS file with the code in all 
+   3 combined-->
+
+   <!-- Modules prevent naming conflicts, contain
+    variable inside respective file
+   -->
   </body>
 </html>
 
@@ -83,5 +96,26 @@ MAIN IDEA OF JAVASCRIPT
         must start with data-
         give it any name that you want
 
+
+-->
+
+<!--
+                  LESSON 14: MODULES
+                  GET A VARIABLE OUT OF A MODULE
+
+Get a variable out of a file
+Modules only work with LiveServer,
+1. add type="module" attribute to file that will be importing variables from other files
+2. export from file using export {}
+3. import from file using import {variables} from file
+
+import statements at top, can also do
+import {cart as myCart}
+
+No longer need to worry about order of files, 
+before needed to load cart and product scripts before amazon script, since that script used the cart
+and products array
+
+With modules, we can just import necessary variables
 
 -->
