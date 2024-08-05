@@ -1,37 +1,8 @@
-import {cart} from '../data/cart.js'
+import {cart, addToCart} from '../data/cart.js' // can also do import * as cartModule to do cartModule.cart, cartModule.addToCart
 import {products} from '../data/products.js'
 
 console.log('Enter Amazon JS');
-/*
-const products = [{
-    name: 'Black and Gray Athletic Cotton Socks - 6 Pairs',
-    image: 'images/products/athletic-cotton-socks-6-pairs.jpg',
-    rating: {
-        stars: 4.5,data/cart.js 
-        count: 87,
-    },
-    priceCents: 1090
-},
-{
-    name: 'Intermediate Size Basketball',
-    image: 'images/products/intermediate-composite-basketball.jpg',
-    rating: {
-        stars: 4,
-        count: 127,
-    },
-    priceCents: 2095
-},
-{
-    name: 'Adults Plain Cotton T-Shirt - 2 Pack',
-    image: 'images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg',
-    rating:{
-        stars: 4.5,
-        count: 56,
-    },
-    priceCents: 799
-},
-]
-*/
+
 console.log('Initialized Products');
 let productsHTML = '';
 
@@ -89,44 +60,30 @@ products.forEach((product) => {
   `;
 });
 
+
+function updateCartQuantity() // handles updating the webpage not managing cart, can decouple from updating webpage
+{
+    let totalQuantity = 0;
+    cart.forEach((cartItem) => {
+      totalQuantity += cartItem.quantity;
+    });
+    document.querySelector('.cart-quantity').innerHTML = totalQuantity;
+}
+
+
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
 const addToCartButtons = document.querySelectorAll('.js-add-to-cart')
 
 addToCartButtons.forEach((button, buttonIndex) =>{
         button.addEventListener('click', () => {
-          console.log('Added Product');
-          console.log(button.dataset);
+          // console.log('Added Product');
+          // console.log(button.dataset);
           const productId = button.dataset.productId
-          
-          let matchingItem;
-          cart.forEach((item, index) => {
-            if(item.productId === productId)
-            {
-              matchingItem = item;
-            }
-          });
-
-          if(matchingItem)
-          {
-            matchingItem.quantity++;
-          }
-          else
-          {
-            cart.push({
-              productId: productId,
-              quantity: 1
-            });
-          }
-
-          let totalQuantity = 0;
-          cart.forEach((item) => {
-            totalQuantity += item.quantity;
-          });
-          document.querySelector('.cart-quantity').innerHTML = totalQuantity;
-
-          console.log(cart);
-          console.log(`Cart Quantity: ${totalQuantity}`);
+          addToCart(productId);
+          updateCartQuantity();
+          // console.log(cart);
+          // console.log(`Cart Quantity: ${totalQuantity}`);
           // use data attribute to get product information from button
           //cart.push()
           //numItems++;
