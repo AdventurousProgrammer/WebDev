@@ -1,5 +1,6 @@
 import {cart, addToCart} from '../data/cart.js' // can also do import * as cartModule to do cartModule.cart, cartModule.addToCart
 import {products} from '../data/products.js'
+import { formatCurrency } from './utils/money.js';
 
 console.log('Enter Amazon JS');
 
@@ -27,7 +28,7 @@ products.forEach((product) => {
           </div>
 
           <div class="product-price">
-            ${(product.priceCents / 100).toFixed(2)}
+            $${formatCurrency((product.priceCents))}
           </div>
 
           <div class="product-quantity-container">
@@ -82,7 +83,7 @@ addToCartButtons.forEach((button, buttonIndex) =>{
           const productId = button.dataset.productId
           addToCart(productId);
           updateCartQuantity();
-          // console.log(cart);
+          console.log(cart);
           // console.log(`Cart Quantity: ${totalQuantity}`);
           // use data attribute to get product information from button
           //cart.push()
