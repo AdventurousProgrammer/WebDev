@@ -22,7 +22,7 @@ cart.forEach((cartItem) => {
   cartSummaryHTML += `
     <div class="cart-item-container
       js-cart-item-container-${matchingProduct.id}">
-      <div class="delivery-date js-delivery-date">
+      <div class="delivery-date js-delivery-date-${matchingProduct.id}">
         Delivery Date: 
       </div>
 
@@ -60,7 +60,7 @@ cart.forEach((cartItem) => {
               name="delivery-option-${matchingProduct.id}"
               id="delivery-option-1-${matchingProduct.id}">
             <div>
-              <div class="delivery-option-date js-delivery-option-date-1">
+              <div class="delivery-option-date js-delivery-option-date-1-${matchingProduct.id}">
               ${currentDate.add(9, 'day').format('dddd, MMMM DD')}
               </div>
               <div class="delivery-option-price">
@@ -74,7 +74,7 @@ cart.forEach((cartItem) => {
               name="delivery-option-${matchingProduct.id}"
               id="delivery-option-2-${matchingProduct.id}">
             <div>
-              <div class="delivery-option-date js-delivery-option-date-2">
+              <div class="delivery-option-date js-delivery-option-date-2-${matchingProduct.id}">
               ${currentDate.add(3, 'day').format('dddd, MMMM DD')}
               </div>
               <div class="delivery-option-price">
@@ -88,7 +88,7 @@ cart.forEach((cartItem) => {
               name="delivery-option-${matchingProduct.id}"
               id="delivery-option-3-${matchingProduct.id}">
             <div>
-              <div class="delivery-option-date js-delivery-option-date-3">
+              <div class="delivery-option-date js-delivery-option-date-3-${matchingProduct.id}">
               ${currentDate.add(1, 'day').format('dddd, MMMM DD')}
               </div>
               <div class="delivery-option-price">
@@ -122,18 +122,19 @@ document.querySelectorAll('.js-delete-link')
     let value;
     if(document.getElementById(`delivery-option-1-${cartItem.productId}`).checked)
       {
-        value = document.querySelector('.js-delivery-option-date-1');
-        document.querySelector('.js-delivery-date-').innerHTML = value.innerHTML;
+        value = document.querySelector(`.js-delivery-option-date-1-${cartItem.productId}`);
+        console.log(value.innerHTML);
+        document.querySelector(`.js-delivery-date-${cartItem.productId}`).innerHTML = value.innerHTML;
       }
     else if(document.getElementById(`delivery-option-2-${cartItem.productId}`).checked)
       {
-        value = document.querySelector('.js-delivery-option-date-2');
-        document.querySelector('.js-delivery-date').innerHTML = value.innerHTML;
+        value = document.querySelector(`.js-delivery-option-date-2-${cartItem.productId}`);
+        document.querySelector(`.js-delivery-date-${cartItem.productId}`).innerHTML = value.innerHTML;
       }
     else
       {
-        value = document.querySelector('.js-delivery-option-date-3');
-        document.querySelector('.js-delivery-date').innerHTML = value.innerHTML;
+        value = document.querySelector(`.js-delivery-option-date-3-${cartItem.productId}`);
+        document.querySelector(`.js-delivery-date-${cartItem.productId}`).innerHTML = value.innerHTML;
       }
   });
   
