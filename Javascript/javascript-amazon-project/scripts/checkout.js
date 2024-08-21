@@ -151,3 +151,14 @@ function renderOrderSummary()
 }
 
 renderOrderSummary();
+
+/**
+ * We updated the data and regenerated all the HTML, which follows the MVC (model view controller design pattern)
+ * 
+ * Split the code up into 3 parts Model, View, and Controller
+ * 
+ * Model - is the code that stores (saves and manages) all the data used by the webpage (all the code in the data folder)
+ * View - responsible for rendering the webpage (takes data and displays it) (amazon.html, checkout.html)
+ * Controller - allows the user to interact with the webpage and do things which in turn updates the webpage (event listeners)
+ * runs code when user interacts with the page
+ */
